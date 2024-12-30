@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contacts</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Contacts</h1>
+    <a th:href="@{/contacts/new}">Create New Contact</a>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Client ID</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contact : ${contacts}">
+            <td th:text="${contact.id}">1</td>
+            <td th:text="${contact.firstName}">First Name</td>
+            <td th:text="${contact.lastName}">Last Name</td>
+            <td th:text="${contact.email}">Email</td>
+            <td th:text="${contact.phone}">Phone</td>
+            <td th:text="${contact.client.id}">Client ID</td>
+            <td>
+                <a th:href="@{/contacts/{id}(id=${contact.id})}">View</a>
+                <a th:href="@{/contacts/edit/{id}(id=${contact.id})}">Edit</a>
+                <a th:href="@{/contacts/delete/{id}(id=${contact.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

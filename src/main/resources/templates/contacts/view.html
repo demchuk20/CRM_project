@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contact Details</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Contact Details</h1>
+    <p>ID: <span th:text="${contact.id}">1</span></p>
+    <p>First Name: <span th:text="${contact.firstName}">First Name</span></p>
+    <p>Last Name: <span th:text="${contact.lastName}">Last Name</span></p>
+    <p>Email: <span th:text="${contact.email}">Email</span></p>
+    <p>Phone: <span th:text="${contact.phone}">Phone</span></p>
+    <p>Client ID: <span th:text="${contact.client.id}">Client ID</span></p>
+    <a th:href="@{/contacts}">Back to Contacts List</a>
+</div>
+</body>
+</html>

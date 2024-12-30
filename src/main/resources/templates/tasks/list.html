@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tasks</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Tasks</h1>
+    <a th:href="@{/tasks/new}">Create New Task</a>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Due Date</th>
+            <th>Contact ID</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:number="${task.id}">1</td>
+            <td th:text="${task.description}">Description</td>
+            <td th:text="${task.status}">Status</td>
+            <td th:text="${task.dueDate}">Due Date</td>
+            <td th:text="${task.contact.id}">Contact ID</td>
+            <td>
+                <a th:href="@{/tasks/{id}(id=${task.id})}">View</a>
+                <a th:href="@{/tasks/edit/{id}(id=${task.id})}">Edit</a>
+                <a th:href="@{/tasks/delete/{id}(id=${task.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

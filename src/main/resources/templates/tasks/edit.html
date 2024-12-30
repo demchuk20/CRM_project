@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Task</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Edit Task</h1>
+    <form method="post" th:action="@{/tasks/update/{id}(id=${task.id})}" th:object="${task}">
+        <label for="description">Description:</label>
+        <input id="description" th:field="*{description}" type="text"/><br/>
+        <label for="status">Status:</label>
+        <select id="status" th:field="*{status}">
+            <option value="OPEN">Open</option>
+            <option value="IN_PROGRESS">In Progress</option>
+            <option value="COMPLETED">Completed</option>
+        </select><br/>
+        <label for="dueDate">Due Date:</label>
+        <input id="dueDate" th:field="*{dueDate}" type="date"/><br/>
+        <label for="contact">Contact ID:</label>
+        <input id="contact" th:field="*{contact.id}" type="number"/><br/>
+        <button type="submit">Save</button>
+    </form>
+    <a th:href="@{/tasks}">Back to Tasks List</a>
+</div>
+</body>
+</html>

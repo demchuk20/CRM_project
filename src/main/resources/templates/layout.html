@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script th:src="@{/js/notification.js}"></script>
+</head>
+<body>
+<div>
+    <a href="home">home</a> <a href="register">register</a>
+    <a href="login">login</a> <a href="clients">clients</a>
+    <a href="contacts">contacts</a> <a href="tasks">tasks</a>
+</div>
+<br>
+<br>
+<div layout:fragment="content">
+    <p>changing content</p>
+</div>
+<br>
+<br>
+
+</body>
+</html>

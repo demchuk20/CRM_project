@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Clients</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Clients</h1>
+    <a th:href="@{/clients/new}">Create New Client</a>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Company Name</th>
+            <th>Industry</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="client : ${clients}">
+            <td th:text="${client.id}">1</td>
+            <td th:text="${client.companyName}">Company Name</td>
+            <td th:text="${client.industry}">Industry</td>
+            <td th:text="${client.address}">Address</td>
+            <td>
+                <a th:href="@{/clients/{id}(id=${client.id})}">View</a>
+                <a th:href="@{/clients/edit/{id}(id=${client.id})}">Edit</a>
+                <a th:href="@{/clients/delete/{id}(id=${client.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

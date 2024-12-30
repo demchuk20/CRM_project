@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Contact</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Create Contact</h1>
+    <form method="post" th:action="@{/contacts}" th:object="${contact}">
+        <label for="firstName">First Name:</label>
+        <input id="firstName" th:field="*{firstName}" type="text"/><br/>
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" th:field="*{lastName}" type="text"/><br/>
+        <label for="email">Email:</label>
+        <input id="email" th:field="*{email}" type="email"/><br/>
+        <label for="phone">Phone:</label>
+        <input id="phone" th:field="*{phone}" type="text"/><br/>
+        <label for="client">Client ID:</label>
+        <input id="client" th:field="*{client.id}" type="number"/><br/>
+        <button type="submit">Save</button>
+    </form>
+    <a th:href="@{/contacts}">Back to Contacts List</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Details</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Task Details</h1>
+    <p>ID: <span th:text="${task.id}">1</span></p>
+    <p>Description: <span th:text="${task.description}">Description</span></p>
+    <p>Status: <span th:text="${task.status}">Status</span></p>
+    <p>Due Date: <span th:text="${task.dueDate}">Due Date</span></p>
+    <p>Contact ID: <span th:text="${task.contact.id}">Contact ID</span></p>
+    <a th:href="@{/tasks}">Back to Tasks List</a>
+</div>
+</body>
+</html>

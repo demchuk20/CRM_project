@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Client</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Edit Client</h1>
+    <form method="post" th:action="@{/clients/update/{id}(id=${client.id})}" th:object="${client}">
+        <label for="companyName">Company Name:</label>
+        <input id="companyName" th:field="*{companyName}" type="text"/><br/>
+        <label for="industry">Industry:</label>
+        <input id="industry" th:field="*{industry}" type="text"/><br/>
+        <label for="address">Address:</label>
+        <input id="address" th:field="*{address}" type="text"/><br/>
+        <button type="submit">Save</button>
+    </form>
+    <a th:href="@{/clients}">Back to Clients List</a>
+</div>
+</body>
+</html>
